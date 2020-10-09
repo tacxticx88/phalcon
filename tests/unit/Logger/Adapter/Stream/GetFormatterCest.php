@@ -15,7 +15,6 @@ namespace Phalcon\Tests\Unit\Logger\Adapter\Stream;
 
 use Phalcon\Logger\Adapter\Stream;
 use Phalcon\Logger\Formatter\FormatterInterface;
-use Phalcon\Logger\Formatter\Line;
 use UnitTester;
 
 class GetFormatterCest
@@ -31,10 +30,6 @@ class GetFormatterCest
         $fileName = logsDir($fileName);
 
         $adapter = new Stream($fileName);
-
-        $adapter->getFormatter(
-            new Line()
-        );
 
         $I->assertInstanceOf(
             FormatterInterface::class,

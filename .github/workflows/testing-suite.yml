@@ -86,21 +86,21 @@ jobs:
       - name: Code Coverage unit tests
         run: php ./bin/ocular.phar code-coverage:upload --format=php-clover ./tests/_output/coverage.xml
 
-      - name: Code Coverage - Codacy
-        uses: codacy/codacy-coverage-reporter-action@master
-        with:
-          project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
-          coverage-reports: ./tests/_output/coverage.xml
+#      - name: Code Coverage - Codacy
+#        uses: codacy/codacy-coverage-reporter-action@master
+#        with:
+#          project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
+#          coverage-reports: ./tests/_output/coverage.xml
+#
+      - name: Run integration tests
+        env:
+          DATA_REDIS_PORT: ${{ job.services.redis.ports['6379'] }}
+          DATA_MEMCACHED_PORT: ${{ job.services.memcached.ports['11211'] }}
+        run: vendor/bin/codecept run --ext DotReporter integration --coverage --coverage-xml
 
-#      - name: Run integration tests
-#        env:
-#          DATA_REDIS_PORT: ${{ job.services.redis.ports['6379'] }}
-#          DATA_MEMCACHED_PORT: ${{ job.services.memcached.ports['11211'] }}
-#        run: vendor/bin/codecept run --ext DotReporter integration --coverage --coverage-xml
-#
-#      - name: Code Coverage integration tests
-#        run: php ./bin/ocular.phar code-coverage:upload --format=php-clover ./tests/_output/coverage.xml
-#
+      - name: Code Coverage integration tests
+        run: php ./bin/ocular.phar code-coverage:upload --format=php-clover ./tests/_output/coverage.xml
+
 #      - name: Run database tests MySQL
 #        env:
 #          DATA_MYSQL_PORT: ${{ job.services.mysql.ports['3306'] }}
@@ -132,3 +132,9 @@ jobs:
 ##          DATA_REDIS_PORT: ${{ job.services.redis.ports['6379'] }}
 ##          DATA_MEMCACHED_PORT: ${{ job.services.memcached.ports['11211'] }}
 ##        run: vendor/bin/codecept run --ext DotReporter database --env sqlsrv
+      - name: Upload coverage to Codecov
+        if: success()
+        uses: codecov/codecov-action@v1
+        with:
+          token: ${{secrets.CODECOV_TOKEN}}
+          file: ./tests/_output/coverage.xml

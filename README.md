@@ -3,21 +3,22 @@ Phalcon Framework
 
 [![PDS Skeleton](https://img.shields.io/badge/pds-skeleton-blue.svg?style=flat-square)](https://github.com/php-pds/skeleton)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/cb48fc4f2f03440bad6c305ea27449a2)](https://www.codacy.com/gh/phalcon/phalcon?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=phalcon/phalcon&amp;utm_campaign=Badge_Grade)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/phalcon/phalcon/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/phalcon/phalcon/?branch=master)
-[![Code Coverage](https://scrutinizer-ci.com/g/phalcon/phalcon/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/phalcon/phalcon/?branch=master)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/phalcon/phalcon/badges/quality-score.png?b=v5.0.x)](https://scrutinizer-ci.com/g/phalcon/phalcon/?branch=v5.0.x)
+[![Code Coverage](https://scrutinizer-ci.com/g/phalcon/phalcon/badges/coverage.png?b=v5.0.x)](https://scrutinizer-ci.com/g/phalcon/phalcon/?branch=v5.0.x)
+[![codecov](https://codecov.io/gh/phalcon/phalcon/branch/v5.0.x/graph/badge.svg)](https://codecov.io/gh/phalcon/phalcon)
 
 ## Implemented
 
-| Standard                                                                  | Description            |
-|---------------------------------------------------------------------------|------------------------|
-| ![PSR-4](https://img.shields.io/badge/PSR-4-blue.svg?style=flat-square)   | `Phalcon\Autoloader`   |
-| ![PSR-12](https://img.shields.io/badge/PSR-12-blue.svg?style=flat-square) | Coding Standard        |
+| Standard                                                                  | Description             |
+|---------------------------------------------------------------------------|-------------------------|
+| ![PSR-3](https://img.shields.io/badge/PSR-3-blue.svg?style=flat-square)   | `Phalcon\Logger\Logger` |
+| ![PSR-4](https://img.shields.io/badge/PSR-4-blue.svg?style=flat-square)   | `Phalcon\Autoloader`    |
+| ![PSR-12](https://img.shields.io/badge/PSR-12-blue.svg?style=flat-square) | Coding Standard         |
 
 ## To do
 
 | Standard                                                                 | Description            |
 |--------------------------------------------------------------------------|------------------------|
-| ![PSR-3](https://img.shields.io/badge/PSR-3-red.svg?style=flat-square)   | `Phalcon\Logger`       |
 | ![PSR-6](https://img.shields.io/badge/PSR-6-red.svg?style=flat-square)   | Caching Interface      |
 | ![PSR-7](https://img.shields.io/badge/PSR-7-red.svg?style=flat-square)   | `Phalcon\Http\Message` |
 | ![PSR-11](https://img.shields.io/badge/PSR-11-red.svg?style=flat-square) | Container Interface    |
