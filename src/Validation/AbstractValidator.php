@@ -13,9 +13,8 @@ declare(strict_types=1);
 
 namespace Phalcon\Validation;
 
-use Phalcon\Collection;
-use Phalcon\Helper\Arr;
 use Phalcon\Messages\Message;
+use Phalcon\Support\Arr\Whitelist;
 use Phalcon\Validation;
 
 /**
@@ -46,7 +45,8 @@ abstract class AbstractValidator implements ValidatorInterface
      */
     public function __construct(array $options = [])
     {
-        $template = current(Arr::whiteList($options, ["template", "message", 0]));
+        $whitelist = new Whitelist();
+        $template = current($whitelist($options, ["template", "message", 0]));
 
         if (is_array($template)) {
             $this->setTemplates($template);
@@ -55,7 +55,11 @@ abstract class AbstractValidator implements ValidatorInterface
         }
 
         if ($template) {
-            unset($options["template"], $options["message"], $options[0]);
+            unset(
+                $options["template"],
+                $options["message"],
+                $options[0]
+            );
         }
 
         $this->options = $options;
@@ -222,6 +226,15 @@ abstract class AbstractValidator implements ValidatorInterface
         return $label;
     }
 
+    /**
+     * Create a default message by factory
+     *
+     * @param Validation $validation
+     * @param $field
+     * @param array $replacements
+     * @return Message
+     * @throws Exception
+     */
     public function messageFactory(Validation $validation, $field, array $replacements = []): Message
     {
         if (is_array($field)) {

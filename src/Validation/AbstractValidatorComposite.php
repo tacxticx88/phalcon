@@ -23,7 +23,7 @@ abstract class AbstractValidatorComposite extends AbstractValidator implements V
     /**
      * @var array
      */
-    protected $validators = []; //{ get };
+    protected $validators = [];
 
     /**
      * Executes the validation
@@ -31,6 +31,7 @@ abstract class AbstractValidatorComposite extends AbstractValidator implements V
      * @param Validation $validation
      * @param $field
      * @return bool
+     * @throws Exception
      */
     public function validate(Validation $validation, $field): bool
     {
@@ -45,5 +46,15 @@ abstract class AbstractValidatorComposite extends AbstractValidator implements V
         }
 
         return true;
+    }
+
+    /**
+     * Return all validators
+     *
+     * @return array
+     */
+    public function getValidators(): array
+    {
+        return $this->validators;
     }
 }

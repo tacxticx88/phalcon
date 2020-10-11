@@ -11,12 +11,11 @@
 
 declare(strict_types=1);
 
-namespace Phalcon\Validation;
+namespace Phalcon\Validation\Validator;
 
-/**
- * Exceptions thrown in Phalcon\Validation\* classes will use this class
- */
-class Exception extends \Exception
+use Phalcon\Validation\AbstractValidator;
+
+class Alpha extends AbstractValidator
 {
 
 }

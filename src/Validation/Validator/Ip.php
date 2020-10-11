@@ -11,12 +11,12 @@
 
 declare(strict_types=1);
 
-namespace Phalcon\Validation;
+namespace Phalcon\Validation\Validator;
 
-/**
- * Exceptions thrown in Phalcon\Validation\* classes will use this class
- */
-class Exception extends \Exception
+use Phalcon\Validation\AbstractValidator;
+
+class Ip extends AbstractValidator
 {
-
+    public const VERSION_4 = FILTER_FLAG_IPV4;
+    public const VERSION_6 = FILTER_FLAG_IPV6;
 }

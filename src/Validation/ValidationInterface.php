@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 namespace Phalcon\Validation;
 
-use Phalcon\Di\Injectable;
 use Phalcon\Validation\MessageInterface;
 use Phalcon\Messages\Messages;
 
